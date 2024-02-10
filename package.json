@@ -8,7 +8,7 @@
     "knex": "ts-node ./node_modules/.bin/knex",
     "lint": "eslint src --ext .ts --fix"
   },
-  "keywords": [],
+  "keyword": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {

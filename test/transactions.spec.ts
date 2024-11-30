@@ -37,7 +37,7 @@ describe('Transactions routes', () => {
     const cookies = createTransectionResponse.get('Set-Cookie')
     const listTransactionResponse = await request(app.server)
       .get('/transactions')
-      .set('Cookie', cookies)
+      .set('Cookie', cookies ?? [])
       .expect(200)
     expect(listTransactionResponse.body.transactions).toEqual([
       expect.objectContaining({
@@ -57,13 +57,13 @@ describe('Transactions routes', () => {
     const cookies = createTransectionResponse.get('Set-Cookie')
     const listTransactionResponse = await request(app.server)
       .get('/transactions')
-      .set('Cookie', cookies)
+      .set('Cookie', cookies ?? [])
       .expect(200)
     const transactionId = listTransactionResponse.body.transactions[0].id
 
     const getTransactionResponse = await request(app.server)
       .get(`/transactions/${transactionId}`)
-      .set('Cookie', cookies)
+      .set('Cookie', cookies ?? [])
       .expect(200)
 
     expect(getTransactionResponse.body.transaction).toEqual(
@@ -84,7 +84,7 @@ describe('Transactions routes', () => {
     const cookies = createTransectionResponse.get('Set-Cookie')
     await request(app.server)
       .post('/transactions')
-      .set('Cookie', cookies)
+      .set('Cookie', cookies ?? [])
       .send({
         title: 'Debt transaction',
         amount: 2000,
@@ -93,7 +93,7 @@ describe('Transactions routes', () => {
 
     const sumamaryResponse = await request(app.server)
       .get('/transactions/summary')
-      .set('Cookie', cookies)
+      .set('Cookie', cookies ?? [])
       .expect(200)
     expect(sumamaryResponse.body.summary).toEqual({
       amount: 3000,

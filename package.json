@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "knex": "ts-node ./node_modules/.bin/knex",
-    "lint": "eslint src --ext .ts --fix"
+    "lint": "eslint src --ext .ts --fix",
+    "test": "vitest"
   },
   "keyword": [],
   "author": "",
@@ -14,14 +15,19 @@
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.1.0",
     "@types/node": "^20.11.7",
+    "@types/supertest": "^6.0.2",
     "eslint": "^8.56.0",
+    "supertest": "^7.0.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "tsx": "^4.19.2",
+    "typescript": "^5.3.3",
+    "vitest": "^2.1.6"
   },
   "dependencies": {
     "@fastify/cookie": "^9.3.1",
     "dotenv": "^16.4.1",
     "fastify": "^4.25.2",
+    "http": "^0.0.1-security",
     "knex": "^3.1.0",
     "sqlite3": "^5.1.7",
     "zod": "^3.22.4"
